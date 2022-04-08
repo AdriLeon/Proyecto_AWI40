@@ -2,7 +2,7 @@ import web
 
 urls = (
     '/', 'mvc.controllers.public.index.Index',
-    '/login', 'mvc.controllers.public.login.Login'
+    '/login', 'mvc.controllers.public.login.Login',
     '/signup', 'mvc.controllers.public.signup.Signup',
     '/inicio', 'mvc.controllers.public.inicio.Inicio',
     '/inicio_admin', 'mvc.controllers.admin.inicio_admin.Inicio_admin',

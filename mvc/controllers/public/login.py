@@ -30,9 +30,9 @@ class Login:
             web.setcookie('localId', user['localId'], 3600) #creamos la cookie donde se almacena nuestra ID
             print("localId: ", web.cookies().get('localId'))#iprimimos nuestra cookies para verificar que se haya creado
             if user['nivel'] == 'Administrador':
-                return web.seeother("inicio_admin")
+                return web.seeother("/inicio_admin")
             else:
-                return web.seeother("inicio_admin") # redirecciona a la pagina de inicio
+                return web.seeother("/inicio_admin") # redirecciona a la pagina de inicio
         except Exception as error:
             format = json.loads(error.args[1]) #presenta el error en formato JSON
             error = format['error'] #Obtenemos el JSON del nuestro error
