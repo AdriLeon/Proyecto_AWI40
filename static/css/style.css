@@ -28,14 +28,14 @@ body {
     outline: none;
 }
 
-.img-1 {
-    background-image: url('/static/images/mockup1.jpg');
+.img-2 {
+    background-image: url('/static/images/macbook-pro-and-imac-at-the-office.png');
     background-size: cover;
     background-position: center;
 }
 
-.img-2 {
-    background-image: url('/static/images/mockup2.jpg');
+.img-1 {
+    background-image: url('/static/images/pc-desktop-and-laptop-mockup-at-a-corporate-office-a4960-std.png');
     background-size: cover;
     background-position: center;
 }
