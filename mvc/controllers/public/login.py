@@ -21,6 +21,7 @@ class Login:
             message = None #se crea una variable para nuestro mensaje de error
             firebase = pyrebase.initialize_app(token.firebaseConfig)
             auth = firebase.auth() # Este nos permitira autenticar con firebase
+            db = firebase.database()
             formulario = web.input() #tomara los datos del formulario
             email = formulario.email #el email del formulario se almacena en la variable
             password = formulario.password #el password del formulario se almacena en la variable
@@ -29,10 +30,12 @@ class Login:
             print(user['localId']) #Si los datos son correctos se mostrara la ID del usuario
             web.setcookie('localId', user['localId'], 3600) #creamos la cookie donde se almacena nuestra ID
             print("localId: ", web.cookies().get('localId'))#iprimimos nuestra cookies para verificar que se haya creado
-            if user['nivel'] == 'Administrador':
+            results = db.child("users").child(user['localId']).get()
+            print(results.val())
+            if results.val()['nivel'] == 'Administrador':
                 return web.seeother("/inicio_admin")
             else:
-                return web.seeother("/inicio_admin") # redirecciona a la pagina de inicio
+                return web.seeother("/inicio_user") # redirecciona a la pagina de inicio
         except Exception as error:
             format = json.loads(error.args[1]) #presenta el error en formato JSON
             error = format['error'] #Obtenemos el JSON del nuestro error
