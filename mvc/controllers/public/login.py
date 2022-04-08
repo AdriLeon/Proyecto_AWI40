@@ -2,6 +2,7 @@ import web
 import pyrebase
 import firebase_config as token 
 import app as app
+import json
 
 render = web.template.render("mvc/views/public/")
 
@@ -28,7 +29,10 @@ class Login:
             print(user['localId']) #Si los datos son correctos se mostrara la ID del usuario
             web.setcookie('localId', user['localId'], 3600) #creamos la cookie donde se almacena nuestra ID
             print("localId: ", web.cookies().get('localId'))#iprimimos nuestra cookies para verificar que se haya creado
-            return web.seeother("inicio") # redirecciona a la pagina de inicio
+            if user['nivel'] == 'Administrador':
+                return web.seeother("inicio_admin")
+            else:
+                return web.seeother("inicio_admin") # redirecciona a la pagina de inicio
         except Exception as error:
             format = json.loads(error.args[1]) #presenta el error en formato JSON
             error = format['error'] #Obtenemos el JSON del nuestro error

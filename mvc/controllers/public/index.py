@@ -1,6 +1,7 @@
 import web 
 import app as app
 
+
 render = web.template.render("mvc/views/public/")
 
 class Index:
