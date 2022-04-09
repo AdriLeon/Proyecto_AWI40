@@ -1,3 +1,4 @@
+$def with (name=None)
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
     <header class="mb-auto">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="/static/images/logo.png" width="50px">Lorem ipsum</a>
+          <a class="navbar-brand" href="/user_admin"><img src="/static/images/logo.png" width="50px">Lorem ipsum</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
             aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,14 +25,11 @@
           <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/inicio_admin">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="/logout">Logout</a>
               </li class="nav-item">
-              <li>
-                  <p>$nombre</p>
-              </li>
             </ul>
           </div>
         </div>
@@ -41,7 +39,7 @@
     <section class="py-5 text-center">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Bienvenido $nombre</h1>
+          <h1 class="fw-light">Bienvenido $name.val()['name']</h1>
           <p class="lead text-muted">Como Administrador, tienes herramientas que permitiran realizar tu trabajo de administracion las rapido,
               ¡Conocelas!.
               <br>
@@ -50,9 +48,9 @@
               <li class="lead text-muted">Ten acceso a la lista de usuarios del sistema, modifica datos o inhabilita cuentas en desuso.</li>
             </p>
           <p>
-            <a href="#" class="btn_1 btn-primary my-2">Ir al Dashboard</a>
-            <a href="#" class="btn_1 btn-secondary">Agregar nuevo Usuario</a>
-            <a href="#" class="btn_1 btn-info">Ver la lista de Usuarios</a>
+            <a href="/dashboard" class="btn_1 btn-primary my-2">Ir al Dashboard</a>
+            <a href="/register" class="btn_1 btn-secondary">Agregar nuevo Usuario</a>
+            <a href="/user_list" class="btn_1 btn-info">Ver la lista de Usuarios</a>
             
           </p>
         </div>

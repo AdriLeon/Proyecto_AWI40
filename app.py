@@ -8,6 +8,7 @@ urls = (
     '/inicio_admin', 'mvc.controllers.admin.inicio_admin.Inicio_admin',
     '/inicio_user', 'mvc.controllers.operador.inicio_user.Inicio_user',
     '/logout', 'mvc.controllers.operador.logout.Logout',
+    '/logout', 'mvc.controllers.admin.logout.Logout',
     '/user_list', 'mvc.controllers.admin.userlist.Userlist',
     '/user_update/(.*)', 'mvc.controllers.admin.userupdate.Userupdate',
     '/dashboard', 'mvc.controllers.admin.dashboard.Dashboard',
