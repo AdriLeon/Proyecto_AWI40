@@ -1,3 +1,4 @@
+$def with (name=None)
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,14 +25,11 @@
           <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/inicio_usuario">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="/logout">Logout</a>
               </li class="nav-item">
-              <li>
-                  <p>$nombre</p>
-              </li>
             </ul>
           </div>
         </div>
@@ -41,7 +39,7 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Bienvenido $nombre</h1>
+          <h1 class="fw-light">Bienvenido $name.val()['name']</h1>
           <p class="lead text-muted">Puedes ingresar al Dashboard para poder controlar la temperatura y humedad de los sucursales.</p>
           <p>
             <a href="#" class="btn_1 btn-primary my-2">Ir al Dashboard</a>
