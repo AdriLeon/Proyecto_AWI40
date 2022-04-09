@@ -46,26 +46,26 @@
             </div>
             <div class="col-lg-5 bg-dark d-flex flex-column align-items-end min-vh-100">
                 <div class="px-lg-5 pt-lg-4 pb-lg-3 p-4 mb-auto w-100">
-                    <a href="index.html"><img src="logo.png" class="img-fluid" width="10%"/></a>
+                    <a href="index.html"><img src="/static/images/logo.png" class="img-fluid" width="10%"/></a>
                 </div>
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4">Registrate</h1>
-                <form class="mb-5">
+                <form class="mb-5" method="POST">
                     <div class="mb-4">
-                        <label for="exampleInputUser1" class="form-label font-weight-bold">Usuario</label>
-                        <input type="text" class="form-control bg-dark-x border-0" id="exampleInputUser1" placeholder="Ingresa tu nombre" aria-describedby="emailHelp">
+                        <label  for="exampleInputUser1" class="form-label font-weight-bold">Usuario</label>
+                        <input name="name" type="text" class="form-control bg-dark-x border-0" id="exampleInputUser1" placeholder="Ingresa tu nombre" aria-describedby="emailHelp">
                       </div>
                     <div class="mb-4">
                       <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                      <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="Ingresa tu email" aria-describedby="emailHelp">
+                      <input name="email" type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="Ingresa tu email" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-4">
                       <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
-                      <input type="password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña" id="exampleInputPassword1">
+                      <input name="password" type="password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña" id="exampleInputPassword1">
                     </div>
                     <div class="mb-4">
                         <label for="exampleInputPhone1" class="form-label font-weight-bold">Telefono</label>
-                        <input type="tel" class="form-control bg-dark-x border-0" id="exampleInputPhone1" placeholder="Ingresa tu numero de telefono" aria-describedby="emailHelp">
+                        <input name="phone" type="tel" class="form-control bg-dark-x border-0" id="exampleInputPhone1" placeholder="Ingresa tu numero de telefono" aria-describedby="emailHelp">
                       </div>
                     <button type="submit" class="btn btn-primary w-100">Registrar</button>
                   </form>
