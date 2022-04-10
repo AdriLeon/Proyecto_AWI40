@@ -16,7 +16,7 @@
     <header class="mb-auto">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/static/images/logo.png" width="50px">Lorem ipsum</a>
+            <a class="navbar-brand" href="/inicio_admin"><img src="/static/images/logo.png" width="50px">Lorem ipsum</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
               aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse" id="navbarsExample03">
               <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="/inicio_admin">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Logout</a>
+                  <a class="nav-link" href="/logout">Logout</a>
                 </li>
               </ul>
             </div>
@@ -35,40 +35,40 @@
         </nav>
       </header>
 
-      <form class="form-signin">
+      <form class="form-signin" method="POST">
         <div class="text-center mb-4">
           <img class="mb-4" src="/static/images/logo2.png" alt="" width="80" height="80">
           <h1 class="h3 mb-3 fw-normal">Registra a un nuevo usuario</h1>
         </div>
   
         <div class="form-label-group">
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
           <label for="inputEmail">Email address</label>
         </div>
   
         <div class="form-label-group">
-          <input type="text" id="inputName" class="form-control" placeholder="Password" required>
-          <label for="inputPassword">Nombre</label>
+          <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required>
+          <label for="inputName">Nombre</label>
         </div>
 
         <div class="form-label-group">
-          <input type="tel" id="inputPhone" class="form-control" placeholder="Password" required>
-          <label for="inputPassword">Telefono</label>
+          <input name="phone" type="tel" id="inputPhone" class="form-control" placeholder="Phone" required>
+          <label for="inputPhone">Telefono</label>
         </div>
 
         <div class="form-label-group">
-          <select name="" id="inputState" class="form-control">
+          <select name="nivel" id="inputState" class="form-control">
               <option value="" selected>Nivel</option>
-              <option value="">Administrador</option>
-              <option value="">Operador</option>
+              <option id="Administrador" value="Administrador">Administrador</option>
+              <option id="Operador" value="Operador">Operador</option>
           </select>
         </div>
 
         <div class="form-label-group">
-          <select name="" id="inputState" class="form-control">
+          <select name="status" id="inputState" class="form-control">
               <option value="" selected>Status</option>
-              <option value="">Enable</option>
-              <option value="">Disable</option>
+              <option id="Enable" name="status" value="Enable">Enable</option>
+              <option id="Diisable" name="status" value="Disable">Disable</option>
           </select>
         </div>
 
