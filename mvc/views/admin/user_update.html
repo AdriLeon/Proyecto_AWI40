@@ -14,15 +14,14 @@ $def with(user)
 
 <body>
 
-    $def with(user)
     <main class="form-signin">
-        <form action="">.
+        <form method="POST">.
             <img class="mb-4" src="/static/images/logo2.png" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 fw-normal">Actualizar datos de $name</h1>
+            <h1 class="h3 mb-3 fw-normal">Actualizar datos</h1>
   
             <div class="form-label-group">
                 <label for="name">Name</label>
-                <input type="text" readonly class="form-control" id="name" value="$user.val().get('name')">
+                <input type="email" readonly class="form-control" id="name" value="$user.val().get('name')">
             </div>
             <div class="form-label-group">
                 <label for="name">Email</label>
@@ -30,12 +29,12 @@ $def with(user)
             </div>
             <div class="form-label-group">
                 <label for="name">Phone</label>
-                <input type="text" readonly class="form-control" id="phone" value="$user.val().get('phone')">
+                <input type="text" class="form-control" id="phone" value="$user.val().get('phone')">
             </div>
             <div class="form-label-group">
                 <label for="inputState">Nivel</label>
                 <select name="" id="inputState" class="form-control">
-                    <option value="$user.val().get('nivel')"></option>
+                    <option value="$user.val().get('nivel')">$user.val().get('nivel')</option>
                     <option value="Administrador">Administrador</option>
                     <option value="Operador">Operador</option>
                 </select>
@@ -43,12 +42,12 @@ $def with(user)
             <div class="form-label-group">
                 <label for="inputState">Status</label>
                 <select name="" id="inputState" class="form-control">
-                    <option value="$user.val().get('status')"></option>
+                    <option value="$user.val().get('status')">$user.val().get('status')</option>
                     <option value="Enable">Enable</option>
                     <option value="Disable">Disable</option>
                 </select>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Actualizar Datos</button>
+            <button class="w-100 btn btn-lg btn-primary form-label-group" type="submit">Actualizar Datos</button>
         </form>
     </main>
 </body>
