@@ -28,12 +28,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/logout">Logout</a>
                 </li>
-                <li>
-                    <p>$nombre</p>
-                </li>
-                <li>
-                    <p>$nombre</p>
-                </li>
               </ul>
             </div>
           </div>
@@ -47,12 +41,12 @@
       <!--TEMPERATURE-->
       <div class="card">
         <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> TEMPERATURE</p>
-        <p><span class="reading"><span id="temp"></span> 14&deg;C</span></p>
+        <p id="temp_suc1"><span class="reading"><span id="temp"></span> {{sucursal_1}}</span></p>
       </div>
       <!--HUMIDITY-->
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> HUMIDITY</p>
-        <p><span class="reading"><span id="hum"></span> 4&percnt;</span></p>
+        <p id="hum_suc1"><span class="reading"><span id="hum"></span> {{sucursal_1}}</span></p>
       </div>
       <!--Button-->
       <div class="card">
@@ -67,12 +61,12 @@
       <!--TEMPERATURE-->
       <div class="card">
         <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> TEMPERATURE</p>
-        <p><span class="reading"><span id="temp"></span> 21&deg;C</span></p>
+        <p id="temp_suc2"><span class="reading"><span id="temp"></span> {{sucursal_2}}</span></p>
       </div>
       <!--HUMIDITY-->
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> HUMIDITY</p>
-        <p><span class="reading"><span id="hum"></span> 2&percnt;</span></p>
+        <p  id="hum_suc2"><span class="reading"><span id="hum"></span> {{sucursal_2}}</span></p>
       </div>
       <!--Button-->
       <div class="card">
@@ -92,7 +86,9 @@
       <p>Permita que el sistema trabaje para que la temperatura reduzca.</p>
     </div>
     <div class="btn-group cf">
-      <button class="btn btn-success" id="cancel1">Cancel</button>
+      <form action="">
+        <button class="btn btn-success" id="cancel1">Cancel</button>
+      </form>
     </div>
   </dialog>
   <!--Ventana emergente-->
@@ -111,6 +107,23 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script  src="/static/js/emergente.js"></script>
+
+  <script>
+    window.setInterval(function(){
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://awi4-e8193-default-rtdb.firebaseio.com/sucursales.json');
+        request.onload = () => {
+            const response = request.responseText;
+            console.log(response);
+            const json = JSON.parse(response);
+            document.getElementById('temp_suc1').innerHTML = json["sucursal_1"].temperatura;
+            document.getElementById('hum_suc1').innerHTML = json["sucursal_1"].humedad;
+            document.getElementById('temp_suc2').innerHTML = json["sucursal_2"].temperatura;
+            document.getElementById('hum_suc2').innerHTML = json["sucursal_2"].humedad;
+        };
+        request.send();
+    }, 100);
+  </script>
 
 </body>
 </html>
