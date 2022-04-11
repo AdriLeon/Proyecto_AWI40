@@ -14,3 +14,20 @@ class Userupdate:
             return render.user_update(user)
         except Exception as error:
             print("Error user update.GET: {}".format(error))
+    def POST(self, localId):
+        try:
+            firebase = pyrebase.initialize_app(token.firebaseConfig) #se crea un objeto para conectarse con firebase
+            db = firebase.database()
+            formulario = web.input()
+            phone = formulario.phone
+            nivel = formulario.nivel
+            status = formulario.status
+            data = {
+                "phone": phone,
+                "nivel": nivel,
+                "status": status
+            }
+            db.child("users").child(localId).update(data)
+            return web.seeother("/user_list") 
+        except Exception as error:
+            print("Error user update.GET: {}".format(error))
