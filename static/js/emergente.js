@@ -15,8 +15,8 @@
     });
   
     $('#cancel1').on('click', function() {
-        $processingsystem1[0].close();
-    });
+      $processingsystem2[0].close();
+  });
 
     $('#cancel2').on('click', function() {
         $processingsystem2[0].close();
