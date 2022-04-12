@@ -8,7 +8,17 @@ render = web.template.render("mvc/views/admin/")
 
 class Register:
     def GET(self):
-        return render.register()
+        try:#Se intenta con este codigo
+            print("Inicio_admin.GEt localId: ", web.cookies().get('localId'))#imprime la ID de la cookie
+            if web.cookies().get('localId') == "None" : #se verifica si nuestra cookie contiene algun dato
+                return web.seeother("/login")#si nuestra cookie esta vacia, nos direccionara a la pagina de login
+            elif web.cookies().get('localId') == None : #se verifica si nuestra cookie contiene algun dato
+                return web.seeother("/login")#si nuestra cookie esta vacia, nos direccionara a la pagina de login
+            else:
+                return render.register()
+        except Exception as error:
+            print("Error Inicio.GET: {}".format(error))
+
     def POST(self):
         try:
             firebase = pyrebase.initialize_app(token.firebaseConfig)
