@@ -8,7 +8,7 @@ import random
 render = web.template.render("mvc/views/admin/")
 
 
-class Dashboard_user:
+class Dashboard_admin:
     def GET(self):
         try:#Se intenta con este codigo
             print("Inicio_admin.GEt localId: ", web.cookies().get('localId'))#imprime la ID de la cookie
