@@ -32,10 +32,13 @@ class Login:
             print("localId: ", web.cookies().get('localId'))#iprimimos nuestra cookies para verificar que se haya creado
             results = db.child("users").child(user['localId']).get()
             print(results.val())
-            if results.val()['nivel'] == 'Administrador':
+            if results.val()['nivel'] == 'Administrador' and results.val()['status'] == 'Enable':
                 return web.seeother("/inicio_admin")
-            else:
+            elif results.val()['nivel'] == 'Operador' and results.val()['status'] == 'Enable':
                 return web.seeother("/inicio_user") # redirecciona a la pagina de inicio
+            else:
+                message = 'Cuenta deshabilitada'
+                return render.login(message)
         except Exception as error:
             format = json.loads(error.args[1]) #presenta el error en formato JSON
             error = format['error'] #Obtenemos el JSON del nuestro error
